@@ -1,5 +1,7 @@
 # The 2048 - GA Project 1
 
+## About The Game
+
 The objective of the 2048 game is to reach the tile with a value of 2048 by combining adjacent tiles of the same
 value. The game is played on a 4x4 grid, where new tiles with a value of either 2 or 4 appear randomly after each
 move. The player can move tiles in four directions (up, down, left, right), and with each move, all tiles slide as far
