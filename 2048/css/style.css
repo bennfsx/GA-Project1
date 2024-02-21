@@ -1,0 +1,358 @@
+/* body {
+  margin: 0;
+  font-family: Helvetica;
+  background-color: #434a54;
+}
+
+.gameBoard-container {
+  display: grid;
+  background-color: rgb(255, 255, 255);
+  height: 500px;
+  width: 600px;
+  margin: auto;
+  border: 10px solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.highScore {
+  height: 70px;
+  width: 100px;
+  margin: auto;
+  position: absolute;
+  top: 1%;
+  left: 40%;
+  background-color: rgb(255, 255, 255);
+  border: 3px solid;
+}
+
+.content {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.text-shadows {
+  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
+    9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  font-family: bungee, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: calc(2rem + 5vw);
+  text-align: center;
+  margin: 0;
+  color: var(--color-primary);
+  animation: shadows 1.2s ease-in infinite;
+  letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    transform: translate(-3px, -3px);
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    transform: translate(-6px, -6px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    transform: translate(-9px, -9px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+
+.cell {
+  width: 64px;
+  height: 64px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  float: left;
+  font-size: 24px;
+  text-align: center;
+  line-height: 64px;
+}
+
+/* Customize tile colors 
+.tile-2 { background-color: #eee4da; color: #776e65; }
+.tile-4 { background-color: #ede0c8; color: #776e65; }
+.tile-8 { background-color: #f2b179; color: #fff; }
+.tile-16 { background-color: #f59563; color: #fff; }
+.tile-32 { background-color: #f67c5f; color: #fff; }
+.tile-64 { background-color: #f65e3b; color: #fff; }
+.tile-128 { background-color: #edcf72; color: #fff; }
+.tile-256 { background-color: #edcc61; color: #fff; }
+.tile-512 { background-color: #edc850; color: #fff; }
+.tile-1024 { background-color: #edc53f; color: #fff; }
+.tile-2048 { background-color: #edc22e; color: #fff; } */
+
+/* .body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#game-board {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 600px;
+  width: 600px;
+}
+
+img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#scoreText {
+  font-size: 20px;
+  margin-left: 645px;
+}
+
+.box {
+  position: absolute;
+  height: 137px;
+  width: 137px;
+  left: 11px;
+  top: 11px;
+  border-radius: 12px;
+  text-align: center;
+  line-height: 137px;
+  font-size: 40px;
+  color: white;
+  font-weight: 750;
+} */
+
+body {
+  display: flex;
+  background-color: #faf8ef;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+}
+
+.board {
+  display: flex;
+  width: 40vw;
+  height: 40vw;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #434a54;
+}
+
+.square {
+  display: flex;
+  width: 22%;
+  height: 22%;
+  margin: 1%;
+  border-radius: 3px;
+  background-color: rgb(182, 172, 172);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* border: 2px solid; */
+  /* border-color: #faf8ef; */
+}
+
+.elementContainer {
+  margin-bottom: 70px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+h1 {
+  font-size: 70px;
+  color: rgb(102, 167, 211);
+}
+
+.scoreElementContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: slateblue;
+  padding: 15px 25px;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 3px;
+  columns: white;
+  text-align: center;
+  margin-left: 10px;
+}
+
+#scoreLabel {
+  color: rgb(182, 172, 172);
+  font-size: 20px;
+}
+
+button {
+  width: 180px;
+  height: 50px;
+  outline: none;
+  font-size: large;
+  font-weight: bold;
+  background-color: aqua;
+  border: none;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.tile {
+  width: 22%;
+  height: 22%;
+  display: flex;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  position: absolute;
+  color: #f9f6f2;
+  background-color: #edc22e;
+  transition: top 0.25s, left 0.25s, width 1s, height 1s;
+}
+
+.row1 {
+  top: 75%;
+}
+
+.row2 {
+  top: 51%;
+}
+
+.row3 {
+  top: 27%;
+}
+.row4 {
+  top: 3%;
+}
+
+.column1 {
+  left: 3%;
+}
+.column2 {
+  left: 27%;
+}
+
+.column3 {
+  left: 51%;
+}
+
+.column4 {
+  left: 75%;
+}
+
+/* Set the color of the tile with value 2 */
+.value2 {
+  color: rgb(119, 110, 101);
+  background-color: #eee4da;
+}
+
+/* Set the color of the tile with value 4 */
+.value4 {
+  color: rgb(119, 110, 101);
+  background-color: #eee1c9;
+}
+
+/* Set the color of the tile with value 8 */
+.value8 {
+  color: #f9f6f2;
+  background-color: #f3b27a;
+}
+
+.value16 {
+  color: #f9f6f2;
+  background-color: #f69664;
+}
+
+.value32 {
+  color: #f9f6f2;
+  background-color: #f77c5f;
+}
+
+.value64 {
+  color: #f9f6f2;
+  background-color: #f75f3b;
+}
+
+.value128 {
+  color: #f9f6f2;
+  background-color: #edd073;
+}
+
+.value256 {
+  color: #f9f6f2;
+  background-color: #edcc62;
+}
+
+.value512 {
+  color: #f9f6f2;
+  background-color: #f75f3b;
+}
+
+.value1024 {
+  color: #f9f6f2;
+  background-color: #f75f3b;
+}
+
+.value2048 {
+  color: #f9f6f2;
+  background-color: #f75f3b;
+}
