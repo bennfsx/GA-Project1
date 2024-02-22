@@ -14,3 +14,16 @@ possible moves can be made. The player's final score is the sum of all tile valu
 ├──
 └──
 ```
+
+# Getting Started
+
+# Technologies Used
+
+- JavaScript
+- HTML
+- CSS
+
+# Next Steps
+
+- Scoreboard
+- Custom theme
