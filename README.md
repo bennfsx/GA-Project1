@@ -11,8 +11,14 @@ possible moves can be made. The player's final score is the sum of all tile valu
 
 ```shell
 .
-├──
-└──
+└── css
+│    └── style.css
+├── image
+├── src
+│    └── script.js
+├── index.html
+└── README.md
+
 ```
 
 # Getting Started
