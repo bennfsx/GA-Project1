@@ -264,3 +264,9 @@ function moveTileOnPage(row, column, tile, merge) {
     });
   }
 }
+
+//Wining Logic
+
+//Losing Logic
+
+// Scoreboard
