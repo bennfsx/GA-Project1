@@ -69,7 +69,7 @@ function startNewGame() {
 
 function continuePlaying() {
   const alert = document.getElementById("alert");
-  alert.sstyle.display = "none";
+  alert.style.display = "none";
   windows.addEventListener("keydown", onDirectionKeyPress);
 }
 
