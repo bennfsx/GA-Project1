@@ -3,8 +3,9 @@ let board = [];
 let score = 0;
 let wonGame = false; //Default
 let tile = document.querySelector(".tile");
-tileContainer = document.querySelector(".tileContainer");
+let tileContainer = document.querySelector(".tileContainer");
 let scoreElement = document.getElementById("scoreElement");
+const alert = document.getElementById("alert");
 
 createBoard();
 addRandomTile();
@@ -53,14 +54,14 @@ function addTileToPage(row, column, value) {
 }
 
 function startNewGame() {
-  const alert = document.getElementById("alert");
+  // const alert = document.getElementById("alert");
   alert.style.display = "none"; // no alert message display yet
   tileContainer.innerHTML = ""; // Empty tile
   scoreElement.innerHTML = 0; // Set default score 0
   board = [];
   score = 0;
   wonGame = false;
-  windows.addEventListener("keyDown", onDirectionKeyPress);
+  window.addEventListener("keydown", onDirectionKeyPress);
   createBoard();
   // Add 2 random tile onto the board upon game start
   addRandomTile();
@@ -70,7 +71,7 @@ function startNewGame() {
 function continuePlaying() {
   const alert = document.getElementById("alert");
   alert.style.display = "none";
-  windows.addEventListener("keydown", onDirectionKeyPress);
+  window.addEventListener("keydown", onDirectionKeyPress);
 }
 
 window.addEventListener("keydown", onDirectionKeyPress);
@@ -265,8 +266,38 @@ function moveTileOnPage(row, column, tile, merge) {
   }
 }
 
-//Wining Logic
+//Highscore Function
+
+
 
 //Losing Logic
+function isGameOver(){
+  let emptySquare = false;
+  for (let i = 0; i < board.length; i++){
+    for (let j=0; j <board[i].length;  j++){
+      if(board[i][j] === 0) emptySquare = true;
+      if(board[i][j] === 32 && !wonGame) return {gameOver:true, message: "You won!"};
+      if (j !=3 && board[i][j] === board[i][j+1]) emptySquare = true;
+      if (i !=3 && board[i][j] === board[i+1][j]) emptySquare = true;
+    }
+  }
+  if(emptySquare)
+    return {gameOver:false,message:""};
+    return {gameOver:true, message: "Game over!"};
+    
+}
 
+
+function showAlert(message){
+  // const alert = document.getElementById("alert");
+  if(message == "Game over!")
+    alert.innerHTML = '<div>Game over!</div> <button class="newGame" onclick="startNewGame()">Try Again</button>; '
+  if(message =="You won!"){
+    wonGame = true;
+    alert.innerHTML = '<div>You Won 2048!</div> <button class="newGame" onclick="startNewGame()">New Game</button><button class="newGame" onclick="continuePlaying()">Continue? Hit High Score?!</button>';
+    window.removeEventListener("keydown", onDirectionKeyPress)
+  }
+  alert.style.display="flex";
+  alert.style.flexDirection="column";
+}
 // Scoreboard
