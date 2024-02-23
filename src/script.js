@@ -6,6 +6,8 @@ let tile = document.querySelector(".tile");
 let tileContainer = document.querySelector(".tileContainer");
 let scoreElement = document.getElementById("scoreElement");
 const alert = document.getElementById("alert");
+let scoresContainer = document.querySelector(".score-board .scores-container")
+let scores = [];
 
 createBoard();
 addRandomTile();
@@ -266,10 +268,6 @@ function moveTileOnPage(row, column, tile, merge) {
   }
 }
 
-//Highscore Function
-
-
-
 //Losing Logic
 function isGameOver(){
   let emptySquare = false;
@@ -292,12 +290,59 @@ function showAlert(message){
   // const alert = document.getElementById("alert");
   if(message == "Game over!")
     alert.innerHTML = '<div>Game over!</div> <button class="newGame" onclick="startNewGame()">Try Again</button>; '
+    addScoreAndRefreshLeaderboard(score);
   if(message =="You won!"){
     wonGame = true;
     alert.innerHTML = '<div>You Won 2048!</div> <button class="newGame" onclick="startNewGame()">New Game</button><button class="newGame" onclick="continuePlaying()">Continue? Hit High Score?!</button>';
     window.removeEventListener("keydown", onDirectionKeyPress)
+    addScoreAndRefreshLeaderboard(score);
   }
   alert.style.display="flex";
   alert.style.flexDirection="column";
 }
 // Scoreboard
+// Function to update the scoreboard
+
+function addScoreAndRefreshLeaderboard(currentScore) {
+  // Load existing scores from localStorage or initialize to an empty array
+  let scores = JSON.parse(localStorage.getItem('scores')) || [];
+  
+  // Determine if the current score qualifies to be added to the leaderboard
+  if (scores.length < 10 || currentScore > scores[scores.length - 1]) {
+      // Add the current score
+      scores.push(currentScore);
+      // Sort scores in descending order
+      scores.sort((a, b) => b - a);
+      // Keep only the top 10 scores
+      scores = scores.slice(0, 10);
+      // Save updated scores back to localStorage
+      localStorage.setItem('scores', JSON.stringify(scores));
+      // Update the leaderboard display
+      updateLeaderboardDisplay(scores);
+  }
+}
+
+function updateLeaderboardDisplay(scores) {
+  let scoresContainer = document.querySelector(".score-board .scores-container");
+  scoresContainer.innerHTML = ''; // Clear existing scores
+
+  // Append score divs for the top 10 scores
+  scores.forEach((score, index) => {
+      let scoreDiv = document.createElement('div');
+      scoreDiv.className = `rank-${index + 1}`;
+      scoreDiv.innerText = `#${index + 1} Score: ${score}`;
+      scoresContainer.appendChild(scoreDiv);
+  });
+}
+
+// Function to load and display scores from localStorage when the page loads
+function loadAndDisplayScores() {
+  let scores = JSON.parse(localStorage.getItem('scores')) || [];
+  updateLeaderboardDisplay(scores);
+}
+
+window.onload = function() {
+  loadAndDisplayScores();
+  // Other initialization code...
+};
+
