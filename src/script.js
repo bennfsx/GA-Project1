@@ -276,7 +276,7 @@ function isGameOver(){
   for (let i = 0; i < board.length; i++){
     for (let j=0; j <board[i].length;  j++){
       if(board[i][j] === 0) emptySquare = true;
-      if(board[i][j] === 128 && !wonGame) return {gameOver:true, message: "You won!"};
+      if(board[i][j] === 2048 && !wonGame) return {gameOver:true, message: "You won!"};
       if (j !=3 && board[i][j] === board[i][j+1]) emptySquare = true;
       if (i !=3 && board[i][j] === board[i+1][j]) emptySquare = true;
     }
