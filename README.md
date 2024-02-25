@@ -30,6 +30,5 @@ possible moves can be made. The player's final score is the sum of all tile valu
 - CSS
 
 # Next Steps
-
-- Scoreboard
 - Custom theme
+- Design/UI 

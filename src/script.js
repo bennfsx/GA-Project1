@@ -1,3 +1,4 @@
+// Global default values
 //Using array to set the board
 let board = [];
 let score = 0;
@@ -70,6 +71,7 @@ function startNewGame() {
   addRandomTile();
 }
 
+
 function continuePlaying() {
   const alert = document.getElementById("alert");
   alert.style.display = "none";
@@ -78,7 +80,7 @@ function continuePlaying() {
 
 window.addEventListener("keydown", onDirectionKeyPress);
 
-//
+//Capture action key UP, DOWN, LEFT and Right
 function onDirectionKeyPress(event) {
   let movePossible;
   switch (event.key) {
@@ -111,7 +113,7 @@ function moveTiles(directionY, directionX) {
   let movePossible = false;
   let mergedRecently = false;
 
-  // if X not 0 then tile movement
+  // if X not 0 then tile movement LEFT RIGHT
   if (directionX !== 0) {
     let startX = directionX === 1 ? 3 : 0;
     let stepX = directionX === 1 ? -1 : 1;
@@ -300,9 +302,9 @@ function showAlert(message){
   alert.style.display="flex";
   alert.style.flexDirection="column";
 }
-// Scoreboard
-// Function to update the scoreboard
 
+
+// Function to add to the scoreboard
 function addScoreAndRefreshLeaderboard(currentScore) {
   // Load existing scores from localStorage or initialize to an empty array
   let scores = JSON.parse(localStorage.getItem('scores')) || [];
@@ -321,7 +323,7 @@ function addScoreAndRefreshLeaderboard(currentScore) {
       updateLeaderboardDisplay(scores);
   }
 }
-
+// Update Scoreboard
 function updateLeaderboardDisplay(scores) {
   let scoresContainer = document.querySelector(".score-board .scores-container");
   scoresContainer.innerHTML = ''; // Clear existing scores
@@ -341,6 +343,7 @@ function loadAndDisplayScores() {
   updateLeaderboardDisplay(scores);
 }
 
+//On windows load display score.
 window.onload = function() {
   loadAndDisplayScores();
   // Other initialization code...
