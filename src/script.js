@@ -7,7 +7,7 @@ let tile = document.querySelector(".tile");
 let tileContainer = document.querySelector(".tileContainer");
 let scoreElement = document.getElementById("scoreElement");
 const alert = document.getElementById("alert");
-let scoresContainer = document.querySelector(".score-board .scores-container")
+let scoresContainer = document.querySelector(".score-board .scores-container");
 let scores = [];
 
 createBoard();
@@ -70,7 +70,6 @@ function startNewGame() {
   addRandomTile();
   addRandomTile();
 }
-
 
 function continuePlaying() {
   const alert = document.getElementById("alert");
@@ -271,81 +270,81 @@ function moveTileOnPage(row, column, tile, merge) {
 }
 
 //Losing Logic
-function isGameOver(){
+function isGameOver() {
   let emptySquare = false;
-  for (let i = 0; i < board.length; i++){
-    for (let j=0; j <board[i].length;  j++){
-      if(board[i][j] === 0) emptySquare = true;
-      if(board[i][j] === 2048 && !wonGame) return {gameOver:true, message: "You won!"};
-      if (j !=3 && board[i][j] === board[i][j+1]) emptySquare = true;
-      if (i !=3 && board[i][j] === board[i+1][j]) emptySquare = true;
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      if (board[i][j] === 0) emptySquare = true;
+      if (board[i][j] === 128 && !wonGame)
+        return { gameOver: true, message: "You won!" };
+      if (j != 3 && board[i][j] === board[i][j + 1]) emptySquare = true;
+      if (i != 3 && board[i][j] === board[i + 1][j]) emptySquare = true;
     }
   }
-  if(emptySquare)
-    return {gameOver:false,message:""};
-    return {gameOver:true, message: "Game over!"};
-    
+  if (emptySquare) return { gameOver: false, message: "" };
+  return { gameOver: true, message: "Game over!" };
 }
 
-
-function showAlert(message){
+function showAlert(message) {
   // const alert = document.getElementById("alert");
-  if(message == "Game over!")
-    alert.innerHTML = '<div>Game over!</div> <button class="newGame" onclick="startNewGame()">Try Again</button>; '
-    addScoreAndRefreshLeaderboard(score);
-  if(message =="You won!"){
+  if (message == "Game over!")
+    alert.innerHTML =
+      '<div class="gameover">Game over!</div> <button class="newGame" onclick="startNewGame()">Try Again</button>; ';
+  addScoreAndRefreshLeaderboard(score);
+  if (message == "You won!") {
     wonGame = true;
-    alert.innerHTML = '<div>You Won 2048!</div> <button class="newGame" onclick="startNewGame()">New Game</button><button class="newGame" onclick="continuePlaying()">Continue? Hit High Score?!</button>';
-    window.removeEventListener("keydown", onDirectionKeyPress)
+    alert.innerHTML =
+      '<div>You Won 2048!</div> <button class="newGame" onclick="startNewGame()">New Game</button><button class="newGame" onclick="continuePlaying()">Continue?</button>';
+    window.removeEventListener("keydown", onDirectionKeyPress);
     addScoreAndRefreshLeaderboard(score);
   }
-  alert.style.display="flex";
-  alert.style.flexDirection="column";
+  alert.style.display = "flex";
+  alert.style.flexDirection = "column";
 }
-
 
 // Function to add to the scoreboard
 function addScoreAndRefreshLeaderboard(currentScore) {
   // Load existing scores from localStorage or initialize to an empty array
-  let scores = JSON.parse(localStorage.getItem('scores')) || [];
-  
+  let scores = JSON.parse(localStorage.getItem("scores")) || [];
+
   // Determine if the current score qualifies to be added to the leaderboard
   if (scores.length < 10 || currentScore > scores[scores.length - 1]) {
-      // Add the current score
-      scores.push(currentScore);
-      // Sort scores in descending order
-      scores.sort((a, b) => b - a);
-      // Keep only the top 10 scores
-      scores = scores.slice(0, 10);
-      // Save updated scores back to localStorage
-      localStorage.setItem('scores', JSON.stringify(scores));
-      // Update the leaderboard display
-      updateLeaderboardDisplay(scores);
+    // Add the current score
+    scores.push(currentScore);
+    // Sort scores in descending order
+    scores.sort((a, b) => b - a);
+    // Keep only the top 10 scores
+    scores = scores.slice(0, 10);
+    // Save updated scores back to localStorage
+    localStorage.setItem("scores", JSON.stringify(scores));
+    // Update the leaderboard display
+    updateLeaderboardDisplay(scores);
   }
 }
 // Update Scoreboard
 function updateLeaderboardDisplay(scores) {
-  let scoresContainer = document.querySelector(".score-board .scores-container");
-  scoresContainer.innerHTML = ''; // Clear existing scores
+  let scoresContainer = document.querySelector(
+    ".score-board .scores-container"
+  );
+  scoresContainer.innerHTML = ""; // Clear existing scores
 
   // Append score divs for the top 10 scores
   scores.forEach((score, index) => {
-      let scoreDiv = document.createElement('div');
-      scoreDiv.className = `rank-${index + 1}`;
-      scoreDiv.innerText = `#${index + 1} Score: ${score}`;
-      scoresContainer.appendChild(scoreDiv);
+    let scoreDiv = document.createElement("div");
+    scoreDiv.className = `rank-${index + 1}`;
+    scoreDiv.innerText = `#${index + 1} Score: ${score}`;
+    scoresContainer.appendChild(scoreDiv);
   });
 }
 
 // Function to load and display scores from localStorage when the page loads
 function loadAndDisplayScores() {
-  let scores = JSON.parse(localStorage.getItem('scores')) || [];
+  let scores = JSON.parse(localStorage.getItem("scores")) || [];
   updateLeaderboardDisplay(scores);
 }
 
 //On windows load display score.
-window.onload = function() {
+window.onload = function () {
   loadAndDisplayScores();
   // Other initialization code...
 };
-

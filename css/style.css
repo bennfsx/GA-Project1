@@ -108,7 +108,7 @@ h1 {
   flex-direction: column;
   background-color: rgb(206, 82, 51);
   padding: 15px 25px;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
   border-radius: 3px;
   columns: white;
@@ -149,6 +149,12 @@ button {
   color: #f9f6f2;
   background-color: #edc22e;
   transition: top 0.25s, left 0.25s, width 1s, height 1s;
+}
+
+.gameover {
+  font-size: 50px;
+  font-weight: bold;
+  color: crimson;
 }
 
 .row1 {
