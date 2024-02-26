@@ -8,9 +8,9 @@ body {
 .score-board {
   position: relative;
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: start; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
   height: 600px;
   width: 350px;
   background-color: #bef18f;
@@ -18,40 +18,39 @@ body {
   border: 5px solid rgb(155, 182, 182);
   border-radius: 10px;
   text-align: center;
-  padding: 10px; 
+  padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
 }
 
 .leaderboard {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   font-size: 40px;
-  color: #4a752c; 
-  border-bottom: 3px solid rgb(155, 182, 182); 
-  width: 100%; 
+  color: #4a752c;
+  border-bottom: 3px solid rgb(155, 182, 182);
+  width: 100%;
   line-height: 50px;
 }
 
 .scores-container {
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  overflow-y: auto; 
-  width: 100%; 
-  max-height: 500px; 
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  width: 100%;
+  max-height: 500px;
 }
 
 .scores-container div {
-  width: 90%; 
-  background-color: #ffffff; 
-  margin: 5px 0; 
-  padding: 10px 0; 
-  border-radius: 5px; 
+  width: 90%;
+  background-color: #ffffff;
+  margin: 5px 0;
+  padding: 10px 0;
+  border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-size: 20px; 
-  color: #333; 
-  border: 2px solid #a5c9a5; 
+  font-size: 20px;
+  color: #333;
+  border: 2px solid #a5c9a5;
 }
-
 
 .container {
   position: relative;
@@ -89,6 +88,7 @@ body {
 
 .elementContainer {
   margin-bottom: 70px;
+  padding: 50px;
 }
 
 .title {
@@ -106,7 +106,7 @@ h1 {
 .scoreElementContainer {
   display: flex;
   flex-direction: column;
-  background-color: slateblue;
+  background-color: rgb(206, 82, 51);
   padding: 15px 25px;
   font-size: 25px;
   font-weight: bold;
@@ -117,7 +117,7 @@ h1 {
 }
 
 #scoreLabel {
-  color: rgb(182, 172, 172);
+  color: rgb(255, 255, 255);
   font-size: 20px;
 }
 
@@ -127,12 +127,13 @@ button {
   outline: none;
   font-size: large;
   font-weight: bold;
-  background-color: aqua;
+  background-color: rgb(30, 187, 80);
   border: none;
   border-radius: 3px;
   margin-left: 10px;
   margin-top: 10px;
   cursor: pointer;
+  color: white;
 }
 
 .tile {

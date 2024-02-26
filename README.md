@@ -21,7 +21,15 @@ possible moves can be made. The player's final score is the sum of all tile valu
 
 ```
 
+# Screenshot
+
+<img src="./img/GameScreen.png">
+
 # Getting Started
+
+Link to play 2048!
+Match the tiles to 2048 to win the game and continue playing to aim for the new highscore!
+https://bennfsx.github.io/GA-Project1/
 
 # Technologies Used
 
@@ -30,5 +38,6 @@ possible moves can be made. The player's final score is the sum of all tile valu
 - CSS
 
 # Next Steps
+
 - Custom theme
-- Design/UI 
+- Design/UI
