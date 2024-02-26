@@ -294,7 +294,7 @@ function showAlert(message) {
   if (message == "You won!") {
     wonGame = true;
     alert.innerHTML =
-      '<div>You Won 2048!</div> <button class="newGame" onclick="startNewGame()">New Game</button><button class="newGame" onclick="continuePlaying()">Continue?</button>';
+      '<div class="gamewin">You Won 2048!</div> <button class="newGame" onclick="startNewGame()">New Game</button><button class="newGame" onclick="continuePlaying()">Continue?</button>';
     window.removeEventListener("keydown", onDirectionKeyPress);
     addScoreAndRefreshLeaderboard(score);
   }
