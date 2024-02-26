@@ -23,7 +23,7 @@ possible moves can be made. The player's final score is the sum of all tile valu
 
 # Screenshot
 
-<img src="./img/GameScreen.png">
+<img src="./img/gamescreenNew.PNG.png">
 
 # Getting Started
 
