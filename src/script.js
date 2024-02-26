@@ -275,7 +275,7 @@ function isGameOver() {
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
       if (board[i][j] === 0) emptySquare = true;
-      if (board[i][j] === 128 && !wonGame)
+      if (board[i][j] === 256 && !wonGame)
         return { gameOver: true, message: "You won!" };
       if (j != 3 && board[i][j] === board[i][j + 1]) emptySquare = true;
       if (i != 3 && board[i][j] === board[i + 1][j]) emptySquare = true;
@@ -296,7 +296,7 @@ function showAlert(message) {
     alert.innerHTML =
       '<div class="gamewin">You Won 2048!</div> <button class="newGame" onclick="startNewGame()">New Game</button><button class="newGame" onclick="continuePlaying()">Continue?</button>';
     window.removeEventListener("keydown", onDirectionKeyPress);
-    addScoreAndRefreshLeaderboard(score);
+    //addScoreAndRefreshLeaderboard(score);
   }
   alert.style.display = "flex";
   alert.style.flexDirection = "column";
