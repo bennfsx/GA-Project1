@@ -26,9 +26,11 @@ possible moves can be made. The player's final score is the sum of all tile valu
 <img src="./img/gamescreenNew.PNG">
 
 # Getting Started
+Navigate through the captivating challenge of 2048 using your arrow keys to slide tiles across the grid. Merge tiles of the same value to double their number, with your sights set on the ultimate goal: creating a tile with the value of 2048. Achieving this coveted milestone declares you a winner, but the thrill doesn't end there. Push your limits and continue playing to surpass your highest score! Each move is a new opportunity to strategize and aim for a new personal best
+
+Ready to slide, combine, and conquer?"
 
 Link to play 2048!
-Match the tiles to 2048 to win the game and continue playing to aim for the new highscore!
 https://bennfsx.github.io/GA-Project1/
 
 # Technologies Used
@@ -37,7 +39,7 @@ https://bennfsx.github.io/GA-Project1/
 - HTML
 - CSS
 
-# Next Steps
-
+# Future Enhancement
 - Custom theme
-- Design/UI
+- Improving Design/UI
+- Live databse to store username and highscore
