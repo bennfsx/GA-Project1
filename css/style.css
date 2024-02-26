@@ -157,6 +157,12 @@ button {
   color: crimson;
 }
 
+.gamewin{
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
 .row1 {
   top: 75%;
 }
