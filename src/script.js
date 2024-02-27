@@ -114,8 +114,8 @@ function moveTiles(directionY, directionX) {
 
   // if X not 0 then tile movement LEFT RIGHT
   if (directionX !== 0) {
-    let startX = directionX === 1 ? 3 : 0;
-    let stepX = directionX === 1 ? -1 : 1;
+    let startX = directionX === 1 ? 3 : 0; // Grid [0,1,2,3]
+    let stepX = directionX === 1 ? -1 : 1; // -1 Left, 1 Right
 
     for (let i = 0; i < 4; i++) {
       let j = startX;
@@ -153,8 +153,8 @@ function moveTiles(directionY, directionX) {
     }
   } // Else if direction is UP or DOWN
   else if (directionY !== 0) {
-    let startY = directionY === 1 ? 3 : 0;
-    let stepY = directionY === 1 ? -1 : 1;
+    let startY = directionY === 1 ? 3 : 0; // [0, 1, 2, 3]
+    let stepY = directionY === 1 ? -1 : 1; // -1 Ups , 1 Down
 
     for (let j = 0; j < 4; j++) {
       let i = startY;
