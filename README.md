@@ -42,4 +42,4 @@ https://bennfsx.github.io/GA-Project1/
 # Future Enhancement
 - Custom theme
 - Improving Design/UI
-- Live databse to store username and highscore
+- Live database to store username and highscore
